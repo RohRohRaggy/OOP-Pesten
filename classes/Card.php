@@ -3,7 +3,7 @@
 class Card{
     private $value;
     private $suit;
-    function ___construct($value, $suit){
+    function __construct($value, $suit){
         $this->value = $value;
         $this->suit = $suit;
     }
