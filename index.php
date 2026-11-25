@@ -2,6 +2,7 @@
 require_once("classes/Card.php");
 require_once("classes/Deck.php");
 require_once("classes/Hand.php");
+require_once("classes/DiscardPile.php");
 
 $Deck = new Deck();
 $Deck->Shuffle();

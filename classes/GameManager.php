@@ -23,7 +23,7 @@ function __construct($playerCount){
     }
 
     $startCard = $this->deck->Draw();
-    $this->discardPile->addCard($startCard);
+    $this->discardPile->placeCard($startCard);
 
     $this->turn = rand(1, $playerCount);
 }
@@ -37,6 +37,12 @@ public function nextPlayer(){
 }
 
 public function show(){
-
+    for($i = 0; $i < count($this->players); $i++){
+        $this->players[$i]->showHand($this->turn);
+    }
+    echo "<board>";
+    $this->deck->ShowDeck();
+    $this->discardPile->showDiscardPile();
+    echo "</board>";
 }
 }
