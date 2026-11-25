@@ -30,4 +30,8 @@ class Deck{
         }
         echo "</deck>";
     }
+
+    public function Draw(){
+        return array_shift($this->Cards);
+    }
 }
