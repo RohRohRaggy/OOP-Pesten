@@ -7,6 +7,7 @@ private $turn;
 
 function __construct($playerCount){
     $this->deck = new Deck();
+    $this->deck->Shuffle();
     $this->discardPile = new DiscardPile();
     $this->players = array();
 

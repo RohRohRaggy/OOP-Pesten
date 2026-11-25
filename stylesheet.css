@@ -32,7 +32,7 @@ hand card:hover {
     z-index: 10;
 }
 
-table {
+board {
     position: absolute;
     top: 50%;
     left: 50%;
