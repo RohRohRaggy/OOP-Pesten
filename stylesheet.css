@@ -3,6 +3,24 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: sans-serif;
+}
+
+.reset-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    background-color: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    z-index: 20;
+}
+
+.reset-btn:hover {
+    background-color: #333;
 }
 
 card img {
@@ -66,7 +84,21 @@ deck card:last-child, discardpile card:last-child {
 }
 
 .P1 {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+}
+
+.P2 {
     top: 20px;
     left: 50%;
     transform: translateX(-50%) rotate(180deg);
+}
+
+.P3 {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
 }

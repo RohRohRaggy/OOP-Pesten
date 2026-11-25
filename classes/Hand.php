@@ -1,16 +1,16 @@
 <?php
 
-class Hand{
+class Hand {
     public $Cards;
     private $playerNr;
-    
-    function __construct($playerNr){
+
+    function __construct($playerNr) {
         $this->Cards = array();
         $this->playerNr = $playerNr;
     }
 
-    public function addToHand($card){
-        array_push($this->Cards,$card);
+    public function addToHand($card) {
+        array_push($this->Cards, $card);
     }
 
     public function showHand($turn) {
@@ -28,20 +28,20 @@ class Hand{
         echo "</hand>";
     }
 
-    public function removeFromHand($id){
+    public function removeFromHand($id) {
         $card = $this->Cards[$id];
         unset($this->Cards[$id]);
         $this->rearrangeHand();
         return $card;
     }
-    private function rearrangeHand(){
+
+    private function rearrangeHand() {
         $nr = 0;
         $tempDeck = $this->Cards;
         $this->Cards = array();
-        foreach($tempDeck as $card){
+        foreach ($tempDeck as $card) {
             $this->Cards[$nr] = $card;
             $nr++;
         }
     }
-
 }

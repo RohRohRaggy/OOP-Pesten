@@ -1,29 +1,30 @@
 <?php
 
-class Deck{
+class Deck {
     public $Cards;
     private $values;
     private $suits;
-    function __construct(){
+
+    function __construct() {
         $this->Cards = array();
         $this->values = array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
         $this->suits = array("H", "S", "R", "K");
         $this->makeNewDeck();
     }
 
-    private function makeNewDeck(){
+    private function makeNewDeck() {
         $nr = 0;
-        for($T=0; $T < count($this->suits); $T++){
-            for($W=0; $W < count($this->values); $W++){
+        for ($T = 0; $T < count($this->suits); $T++) {
+            for ($W = 0; $W < count($this->values); $W++) {
                 $this->Cards[$nr] = new Card($this->values[$W], $this->suits[$T]);
                 $nr++;
             }
         }
     }
 
-public function ShowDeck(){
+    public function ShowDeck() {
         echo "<deck onclick='window.location.href=`index.php?Card=draw`;'>";
-        foreach ($this->Cards as $card){
+        foreach ($this->Cards as $card) {
             echo "<card>";
             $card->showCard();
             echo "</card>";
@@ -31,11 +32,11 @@ public function ShowDeck(){
         echo "</deck>";
     }
 
-    public function Draw(){
+    public function Draw() {
         return array_shift($this->Cards);
     }
 
-    public function Shuffle(){
+    public function Shuffle() {
         shuffle($this->Cards);
         shuffle($this->Cards);
     }
