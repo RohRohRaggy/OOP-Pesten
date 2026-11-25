@@ -27,7 +27,7 @@ function __construct($playerCount){
     $startCard = $this->deck->Draw();
     $this->discardPile->placeCard($startCard);
 
-    $this->turn = rand(0, $playerCount - 1);
+    $this->turn = 0;
 }
 public function click($value){
     if($value == "draw"){

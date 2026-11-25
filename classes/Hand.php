@@ -13,13 +13,14 @@ class Hand{
         array_push($this->Cards,$card);
     }
 
-    public function showHand($turn){
+    public function showHand($turn) {
         echo "<hand class='P" . $this->playerNr . "'>";
-        foreach($this->Cards as $key => $card){
-            echo "<card onclick= 'window.location.href=`index.php?Card=" . $key . "`'>";
-            if($this->playerNr == ($turn)){
+        foreach ($this->Cards as $key => $card) {
+            if ($this->playerNr == $turn) {
+                echo "<card onclick='window.location.href=`index.php?Card=" . $key . "`;'>";
                 $card->showCard(true);
             } else {
+                echo "<card>";
                 $card->showCard();
             }
             echo "</card>";
