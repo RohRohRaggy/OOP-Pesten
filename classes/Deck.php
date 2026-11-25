@@ -34,4 +34,9 @@ class Deck{
     public function Draw(){
         return array_shift($this->Cards);
     }
+
+    public function Shuffle(){
+        shuffle($this->Cards);
+        shuffle($this->Cards);
+    }
 }

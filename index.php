@@ -4,6 +4,7 @@ require_once("classes/Deck.php");
 require_once("classes/Hand.php");
 
 $Deck = new Deck();
+$Deck->Shuffle();
 $player1 = new Hand(0);
 $player2 = new Hand(1);
 $cardCount = 7;
