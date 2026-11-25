@@ -1,0 +1,17 @@
+<?php
+
+class Card{
+    private $value;
+    private $suit;
+    function ___construct($value, $suit){
+        $this->value = $value;
+        $this->suit = $suit;
+    }
+
+    public function GetValue(){return $this->value;}
+    public function GetSuit(){return $this->suit;}
+
+    public function showCard(){
+        echo "<p>" . $this->value . $this->suit . "</p>";
+    }
+}
