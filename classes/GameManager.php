@@ -29,7 +29,11 @@ function __construct($playerCount){
 }
 
 public function nextPlayer(){
-
+    if($this->turn == count($this->players)){
+        $this->turn = 1;
+    } else {
+        $this->turn++;
+    }
 }
 
 public function show(){
