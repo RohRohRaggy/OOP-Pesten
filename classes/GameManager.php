@@ -27,7 +27,7 @@ function __construct($playerCount){
     $startCard = $this->deck->Draw();
     $this->discardPile->placeCard($startCard);
 
-    $this->turn = rand(1, $playerCount);
+    $this->turn = rand(0, $playerCount - 1);
 }
 public function click($value){
     if($value == "draw"){
@@ -43,7 +43,7 @@ private function playCard($cardId){
     $playedCard = $this->players[$this->turn]->Cards[$cardId];
 
     if(empty($this->discardPile->Cards)
-        || $playedCard->GetVaulue() == $topDiscard->GetValue() 
+        || $playedCard->GetValue() == $topDiscard->GetValue() 
         || $playedCard->GetSuit() == $topDiscard->GetSuit()
         || $playedCard->GetValue() == 'J'
         )
