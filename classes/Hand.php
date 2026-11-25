@@ -4,8 +4,9 @@ class Hand{
     public $Cards;
     private $playerNr;
     
-    function __construct(){
-        
+    function __construct($playerNr){
+        $this->Cards = array();
+        $this->playerNr;
     }
 
     public function addToHand($card){

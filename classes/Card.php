@@ -12,6 +12,6 @@ class Card{
     public function GetSuit(){return $this->suit;}
 
     public function showCard(){
-        echo "<p>" . $this->value . $this->suit . "</p>";
+        echo "<img src='img/" . $this->suit . $this->value . ".svg' alt='" . $this->suit . $this->value . "' />";
     }
 }
