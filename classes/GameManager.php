@@ -4,6 +4,7 @@ public $deck;
 public $discardPile;
 public $players;
 private $turn;
+private $LR = true;
 
 function __construct($playerCount){
     $this->deck = new Deck();
@@ -28,6 +29,37 @@ function __construct($playerCount){
 
     $this->turn = rand(1, $playerCount);
 }
+public function click($value){
+    if($value == "draw"){
+        $this->drawCard();
+        $this->nextPlayer();
+    } else {
+        $this->playCard($value);
+    }
+}
+
+private function playCard($cardId){
+    $topDiscard = $this->discardPile->Cards[count($this->discardPile->Cards) - 1];
+    $playedCard = $this->players[$this->turn]->Cards[$cardId];
+
+    if(empty($this->discardPile->Cards)
+        || $playedCard->GetVaulue() == $topDiscard->GetValue() 
+        || $playedCard->GetSuit() == $topDiscard->GetSuit()
+        || $playedCard->GetValue() == 'J'
+        )
+        {
+            $card = $this->players[$this->turn]->removeFromHand($cardId);
+
+            switch($card->GetValue()){
+                case '2':
+                    break;
+                default:
+                    $this->nextPlayer();
+                    break;
+            }
+            $this->discardPile->placeCard($card);
+        }
+}
 
 public function nextPlayer(){
     if($this->turn == count($this->players)){
@@ -35,6 +67,11 @@ public function nextPlayer(){
     } else {
         $this->turn++;
     }
+}
+
+private function drawCard(){
+    $card = $this->deck->Draw();
+    $this->players[$this->turn]->addToHand($card);
 }
 
 public function show(){

@@ -6,21 +6,41 @@ class Hand{
     
     function __construct($playerNr){
         $this->Cards = array();
-        $this->playerNr;
+        $this->playerNr = $playerNr;
     }
 
     public function addToHand($card){
         array_push($this->Cards,$card);
     }
 
-    public function showHand(){
-        echo "<hand class='P".$this->playerNr."'>";
-        foreach($this->Cards as $card){
-            echo "<card>";
-            $card->ShowCard();
+    public function showHand($turn){
+        echo "<hand class='P" . $this->playerNr . "'>";
+        foreach($this->Cards as $key => $card){
+            echo "<card onclick= 'window.location.href=`index.php?Card=" . $key . "`'>";
+            if($this->playerNr == ($turn)){
+                $card->showCard(true);
+            } else {
+                $card->showCard();
+            }
             echo "</card>";
         }
         echo "</hand>";
+    }
+
+    public function removeFromHand($id){
+        $card = $this->Cards[$id];
+        unset($this->Cards[$id]);
+        $this->rearrangeHand();
+        return $card;
+    }
+    private function rearrangeHand(){
+        $nr = 0;
+        $tempDeck = $this->Cards;
+        $this->Cards = array();
+        foreach($tempDeck as $card){
+            $this->Cards[$nr] = $card;
+            $nr++;
+        }
     }
 
 }

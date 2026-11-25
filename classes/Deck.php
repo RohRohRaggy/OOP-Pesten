@@ -21,8 +21,8 @@ class Deck{
         }
     }
 
-    public function ShowDeck(){
-        echo "<deck>";
+public function ShowDeck(){
+        echo "<deck onclick='window.location.href=`index.php?Card=draw`;'>";
         foreach ($this->Cards as $card){
             echo "<card>";
             $card->showCard();
